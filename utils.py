@@ -15,7 +15,13 @@ import networkx as nx
 #Simple Bridge to encapsulate Quantum Task and Aws Device information retrival
 class BraketTaskScanner(object) :
 
-    def __init__( self, qtask):
+    def __init__( self, task_arn = None, qtask = None):
+
+        if task_arn :
+            qtask = AwsQuantumTask(task_arn)
+        elif not qtask:
+            print("BraketTaskScanner error, not enough information to reconstruct task")
+            return
 
         self._task = qtask
 
@@ -40,6 +46,9 @@ class BraketTaskScanner(object) :
     def get_device_provider(self):
         return self.get_device().provider_name
 
+    def get_device_native_gates(self)
+        return self.get_device().properties.paradigm.nativeGateSet
+
     def get_task_type(self):
         provider = self.get_device_provider()
 
@@ -59,13 +68,13 @@ class BraketTaskScanner(object) :
 
         return self.get_task().result()
 
-    def get_circuit_source(self):
+    def get_circuit(self):
         result = self.get_task_results()
 
         if result :
             return result.additional_metadata.action.source
 
-    def get_circuit_source_compiled(self):
+    def get_compiled_circuit(self):
         result = self.get_task_results()
 
         if result :
