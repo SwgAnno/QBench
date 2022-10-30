@@ -46,7 +46,7 @@ class BraketTaskScanner(object) :
     def get_device_provider(self):
         return self.get_device().provider_name
 
-    def get_device_native_gates(self)
+    def get_device_native_gates(self):
         return self.get_device().properties.paradigm.nativeGateSet
 
     def get_task_type(self):
@@ -133,4 +133,38 @@ class BraketTaskScanner(object) :
         print("End date:", meta["endedAt"])
         print("Output buket data:", meta["outputS3Directory"], " / ", meta["outputS3Bucket"])
 
+
+class Plotter(object) :
+
+    def plot_binary_results( task_results, debug = False):
+
+        counts = task_results.measurement_counts
+        # print counts
+        if debug:
+            print(counts)
+            
+        # plot using Counter
+        plt.bar(counts.keys(), counts.values())
+        plt.xlabel('bitstrings')
+        plt.ylabel('counts')
+
+class DeviceUtils(object) :
+
+    #shortcut to get a device without arn
+    def get_device(short_id) :
+
+        if short_id == "local":
+            return LocalSimulator()
+        if short_id == "sv1":
+            return AwsDevice("arn:aws:braket:::device/quantum-simulator/amazon/sv1")
+        if short_id == "dm1":
+            return AwsDevice("arn:aws:braket:::device/quantum-simulator/amazon/dm1")
+        if short_id == "tn1":
+            return AwsDevice("arn:aws:braket:::device/quantum-simulator/amazon/tn1")
+        if short_id == "ionq":
+            return AwsDevice("arn:aws:braket:::device/qpu/ionq/ionQdevice")
+        if short_id == "oqc":
+            return AwsDevice('arn:aws:braket:eu-west-2::device/qpu/oqc/Lucy')
+        if short_id == "rigetti":
+            return AwsDevice('arn:aws:braket:us-west-1::device/qpu/rigetti/Aspen-M-2')
     
