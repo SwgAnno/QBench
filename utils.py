@@ -204,9 +204,13 @@ class Plotter(object) :
             print(counts)
             
         # plot using Counter
-        plt.bar(counts.keys(), counts.values())
-        plt.xlabel('bitstrings')
-        plt.ylabel('counts')
+
+        fig, ax = plt.subplots(1, 1)
+        ax.bar(counts.keys(), counts.values())
+        ax.set_xlabel('bitstrings')
+        ax.set_ylabel('counts')
+
+        plt.show()
 
 class DeviceUtils(object) :
 
