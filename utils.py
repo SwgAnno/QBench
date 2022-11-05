@@ -196,7 +196,7 @@ class DeviceScanner(object):
 
 class Plotter(object) :
 
-    def plot_binary_results( task_results, debug = False):
+    def plot_binary_results( task_results, debug = False, title = None):
 
         counts = task_results.measurement_counts
         # print counts
@@ -209,7 +209,7 @@ class Plotter(object) :
         ax.bar(counts.keys(), counts.values())
         ax.set_xlabel('bitstrings')
         ax.set_ylabel('counts')
-
+        ax.set_title(title)
         plt.show()
 
 class DeviceUtils(object) :
