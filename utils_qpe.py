@@ -3,6 +3,11 @@ import math
 import pickle
 from collections import Counter
 from datetime import datetime
+# general imports
+import numpy as np
+import math
+import matplotlib.pyplot as plt
+# magic word for producing visualizations in notebook
 
 import numpy as np
 
@@ -91,7 +96,7 @@ def qpe(precision_qubits, query_qubits, unitary, control_unitary=True):
                 qpe_circ.controlled_unitary(qubit, query_qubits, unitary)
 
     # Apply inverse qft to the precision_qubits
-    qpe_circ.inverse_qft(precision_qubits)
+    qpe_circ.inverse_qft(precision_qubits,swaps=False)
 
     return qpe_circ
 
@@ -193,6 +198,7 @@ def get_qpe_phases(measurement_counts, precision_qubits, items_to_keep=1):
     return phases_decimal, precision_results_dic
 
 
+    
 def run_qpe(
     unitary,
     precision_qubits,
@@ -288,3 +294,44 @@ def run_qpe(
         # out = pickle.load(open(results_file, "rb"))
 
     return out
+
+
+
+
+def postprocess_qpe_results(out,print_circ = False):
+    """
+    Function to postprocess dictionary returned by run_qpe
+
+    Args:
+        out: dictionary containing results/information associated with QPE run as produced by run_qpe
+    """
+    
+    # unpack results
+    circ = out['circuit']
+    measurement_counts = out['measurement_counts']
+    bitstring_keys = out['bitstring_keys']
+    probs_values = out['probs_values']
+    precision_results_dic = out['precision_results_dic']
+    phases_decimal = out['phases_decimal']
+    eigenvalues = out['eigenvalues']
+    
+    # print the circuit 
+    if print_circ:
+        print('Printing circuit:')
+        print(circ)
+    
+    # print measurement results
+    print('Measurement counts:', measurement_counts)
+    
+    # plot probabalities
+    plt.bar(bitstring_keys, probs_values);
+    plt.xlabel('bitstrings');
+    plt.ylabel('probability');
+    plt.xticks(rotation=90);
+
+    # print results
+    print('Results in precision register:', precision_results_dic)
+    print('QPE phase estimates:', phases_decimal)
+    print('QPE eigenvalue estimates:', np.round(eigenvalues, 5))
+    
+    
