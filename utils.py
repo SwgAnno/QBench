@@ -8,13 +8,12 @@ import braket.tracking.tracker as tracker
 from braket.aws import AwsDevice ,AwsQuantumTask
 import numpy as np
 
-from scipy.stats import poisson
 import json     
 
 #Device graph plotting
 import networkx as nx
 
-#Simple Adapter to encapsulate Quantum Task and Aws Device information retrival
+#Simple Bridge to encapsulate Quantum Task and Aws Device information retrival
 class BraketTaskScanner(object) :
 
     def __init__( self, task_arn = None, qtask = None):
@@ -139,39 +138,6 @@ class BraketTaskScanner(object) :
         out = tracker._get_qpu_task_cost( self.get_arn(), new_details)
         return out
 
-    #compare result statistics with no correlation hypotesis using chi2
-    def is_garbage(self):
-        result = self.get_results()
-
-        if not result:
-            return
-
-        counts = result.measurement_counts
-        n_qubits = len(list(counts.keys())[0])
-        n_bitstrings = 2**n_qubits
-        bitstrings = counts.keys()
-        shots = self.get_shots()
-
-        #expected number of observation with null hypothesis
-        mu = shots/n_bitstrings
-        sigma2 = shots * (n_bitstrings-1)/(n_bitstrings**2)
-
-        chi2 = 0
-
-        for i in range(n_bitstrings):
-            key = format(i, "0"+ str(n_qubits) +"b")
-            occur = 0
-            if key in bitstrings:
-                occur = counts[key]
-
-            chi2 += ((occur - mu)**2 )/ sigma2
-
-        print("Normalized chi quared for results statistics: {}".format(chi2/n_bitstrings))
-
-        #????
-        return chi2/n_bitstrings < 2
-
-            
 
 
 
@@ -198,9 +164,6 @@ class DeviceScanner(object):
     def get_name(self):
         return self.get_device().name
 
-    def get_region(self):
-        return self.get_device().get_device_region(self.get_arn())
-
     def get_provider(self):
         return self.get_device().provider_name
 
@@ -209,31 +172,6 @@ class DeviceScanner(object):
 
     def get_supported_gates(self):
         return self.get_device().properties.action['braket.ir.jaqcd.program'].supportedOperations
-
-    #leverage _get_qpu_task_cost to extract pricing infos
-    def get_cost_infos(self):
-
-        #fake dict for 0 shots task
-        #see implementation of _get_qpu_task_cost for more infos
-        fake_details = dict()
-        fake_details["status"] = "COMPLETED"
-        fake_details["device"] = self.get_arn()
-        fake_details["job_task"] = False
-        fake_details["shots"] = 0
-
-        region = self.get_region()
-        if region == "":
-            region = "us-east-1"
-        fake_arn = "a:b:c:" + region
-
-        print(fake_arn)
-
-        no_shots = tracker._get_qpu_task_cost(fake_arn, fake_details)
-        
-        fake_details["shots"] = 1
-        one_shot = tracker._get_qpu_task_cost(fake_arn, fake_details)
-
-        return {"task" : float(no_shots), "shot" : float(one_shot-no_shots)}
 
      #core device information: arn, provider info, execution window and location
     def list_properties( self):
@@ -272,36 +210,6 @@ class Plotter(object) :
         ax.set_xlabel('bitstrings')
         ax.set_ylabel('counts')
         ax.set_title(title)
-        plt.show()
-
-    def plot_results_statistic(task_results):
-
-        counts = task_results.measurement_counts
-        shots = task_results.task_metadata.shots
-
-        sample = sorted(counts.values())
-        data = np.zeros(max(sample)+1)
-        for value in sample:
-            data[value] += 1
-
-        tot = 0
-        for i in range(len(data)):
-            tot += i* data[i]
-
-        x =  np.arange(0, len(data))
-        n_bitstrings = (2**len(list(counts.keys())[0]))
-
-        mu = shots / n_bitstrings
-        print(mu, shots, tot ,n_bitstrings )
-
-        reference = np.array ([ poisson.pmf(k,mu) for k in x] ) * n_bitstrings
-
-        fig, ax = plt.subplots(1, 1)
-        ax.bar(x, reference)
-        ax.scatter( x,data, zorder = 5)
-        ax.set_xlabel('counts')
-        ax.set_ylabel('#')
-
         plt.show()
 
 class DeviceUtils(object) :
