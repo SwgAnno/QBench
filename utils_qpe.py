@@ -18,6 +18,21 @@ from braket.circuits import Circuit, circuit
 from utils_qft import inverse_qft
 
 
+
+def get_number_precision_qubits (accuracy, error_prob):
+    """it returns the number of precision qubits for a given precision and accepted probability of error
+    
+    P(|phi_est - phi_best| < 2^-q) <= e
+    
+    inputs : accuracy (int: q) accuracy required to the estimation protocol (. 
+    error prob (float: e): maximum error accepted in the estimation protocol
+    
+    """
+    assert type(accuracy == int)
+    n_precision_qubits = accuracy + math.ceil(np.log2(2+1/(2*error_prob)))
+    return n_precision_qubits
+
+
 @circuit.subroutine(register=True)
 def controlled_unitary(control, target_qubits, unitary):
     """
@@ -96,7 +111,7 @@ def qpe(precision_qubits, query_qubits, unitary, control_unitary=True):
                 qpe_circ.controlled_unitary(qubit, query_qubits, unitary)
 
     # Apply inverse qft to the precision_qubits
-    qpe_circ.inverse_qft(precision_qubits,swaps=False)
+    qpe_circ.inverse_qft(precision_qubits,swaps=True)
 
     return qpe_circ
 
@@ -324,10 +339,11 @@ def postprocess_qpe_results(out,print_circ = False):
     print('Measurement counts:', measurement_counts)
     
     # plot probabalities
-    plt.bar(bitstring_keys, probs_values);
-    plt.xlabel('bitstrings');
-    plt.ylabel('probability');
-    plt.xticks(rotation=90);
+    if print_circ:
+        plt.bar(bitstring_keys, probs_values);
+        plt.xlabel('bitstrings');
+        plt.ylabel('probability');
+        plt.xticks(rotation=90);
 
     # print results
     print('Results in precision register:', precision_results_dic)
