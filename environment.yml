@@ -266,6 +266,7 @@ dependencies:
     - pydantic==1.9.2
     - pylatexenc==2.10
     - pyqubo==1.0.10
+    - pyquil==3.3.2
     - pyscf==1.7.6.post1
     - pysocks==1.7.1
     - python-dotenv==0.21.0
