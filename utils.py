@@ -270,7 +270,7 @@ class Plotter(object) :
         fig, ax = plt.subplots(1, 1)
 
         x_values = [int(x,2) for x in counts.keys()] if decimal else counts.keys()
-        ax.bar(counts.keys(), counts.values())
+        ax.bar(x_values, counts.values())
         ax.set_xlabel('bitstrings')
         ax.set_ylabel('counts')
         ax.set_title(title)
