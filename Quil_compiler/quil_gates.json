@@ -1,0 +1,132 @@
+{
+    "I": {
+        "gate_name": "I",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nI 0\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "X": {
+        "gate_name": "X",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nX 0\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-0.9199372448290238) 141\nRX(pi/2) 141\nRZ(pi) 141\nRX(-pi/2) 141\nRZ(2.2216554087607694) 141\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-0.9199372448290238) 141\nRX(pi/2) 141\nRZ(pi) 141\nRX(-pi/2) 141\nRZ(2.2216554087607694) 141\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-0.9199372448290238) 141\nRX(pi/2) 141\nRZ(pi) 141\nRX(-pi/2) 141\nRZ(2.2216554087607694) 141\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "Y": {
+        "gate_name": "Y",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nY 0\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-2.446121240088584) 141\nRX(pi/2) 141\nRZ(pi) 141\nRX(-pi/2) 141\nRZ(-2.446121240088584) 141\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-2.446121240088584) 141\nRX(pi/2) 141\nRZ(pi) 141\nRX(-pi/2) 141\nRZ(-2.446121240088584) 141\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-2.446121240088584) 141\nRX(pi/2) 141\nRZ(pi) 141\nRX(-pi/2) 141\nRZ(-2.446121240088584) 141\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "Z": {
+        "gate_name": "Z",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nZ 0\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi) 141\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi) 141\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi) 141\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "H": {
+        "gate_name": "H",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nH 0\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/2) 141\nRX(pi/2) 141\nRZ(pi/2) 141\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/2) 141\nRX(pi/2) 141\nRZ(pi/2) 141\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/2) 141\nRX(pi/2) 141\nRZ(pi/2) 141\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "S": {
+        "gate_name": "S",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nS 0\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/2) 141\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/2) 141\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/2) 141\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "T": {
+        "gate_name": "T",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nT 0\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/4) 141\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/4) 141\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/4) 141\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "CZ": {
+        "gate_name": "CZ",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nCZ 0 1\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi) 122\nRZ(pi) 135\nCZ 122 135\nRZ(-pi) 122\nRZ(-pi) 135\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi) 122\nRZ(pi) 135\nCZ 122 135\nRZ(-pi) 122\nRZ(-pi) 135\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi) 122\nRZ(pi) 135\nCZ 122 135\nRZ(-pi) 122\nRZ(-pi) 135\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "CNOT": {
+        "gate_name": "CNOT",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nCNOT 0 1\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nRZ(-pi) 135\nCZ 135 122\nRZ(pi/2) 122\nRX(pi/2) 122\nRZ(3*pi/2) 122\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-3*pi/2) 122\nRX(pi/2) 122\nRZ(2.761086276477428) 122\nRZ(1.9513027039072612) 135\nCZ 122 135\nRZ(0.38050637711236535) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nRZ(4.331882603272325) 135\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-3*pi/2) 122\nRX(pi/2) 122\nRZ(2.761086276477428) 122\nRZ(1.9513027039072612) 135\nCZ 122 135\nRZ(0.38050637711236535) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nRZ(4.331882603272325) 135\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "CCNOT": {
+        "gate_name": "CCNOT",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nCCNOT 0 1 2\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(2.715879016239938) 122\nRZ(2.781908127542195) 135\nCZ 135 122\nRZ(pi/2) 121\nRZ(-1.1450826894450417) 122\nRX(pi/2) 122\nRZ(-3*pi/4) 122\nXY(pi) 121 122\nRZ(-3*pi/2) 121\nRX(pi/2) 121\nRZ(3*pi/2) 121\nXY(pi) 121 122\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nRZ(-0.4257136373498511) 135\nCZ 135 122\nRZ(-2.7468570598565907) 121\nRX(-pi) 121\nRZ(3*pi/2) 121\nRZ(-pi) 122\nRX(pi/2) 122\nRZ(3*pi/4) 122\nRX(-pi/2) 122\nRZ(-2.746857059856588) 122\nXY(pi) 121 122\nRZ(-3.026060491691869) 122\nRX(pi/2) 122\nRZ(-pi/2) 122\nRZ(2.9364965932673828) 135\nRX(pi/2) 135\nRZ(pi) 135\nRX(-pi/2) 135\nRZ(-0.7112907918845803) 135\nXY(pi) 135 122\nRX(pi/2) 135\nRZ(pi/4) 135\nRX(-pi/2) 135\nXY(pi) 135 122\nRZ(-1.9655319205281006) 121\nRX(pi/2) 121\nRZ(pi/4) 121\nRX(-pi/2) 121\nRZ(-pi/2) 121\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(0.5061947315621689) 122\nRZ(-2.522274677797664) 135\nRX(pi/2) 135\nRZ(pi) 135\nRX(-pi/2) 135\nRZ(-1.4576730825649369) 135\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-0.1094894959700629) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(-0.2116563686876655) 122\nRZ(2.4583613629099474) 135\nCZ 135 122\nRZ(pi/2) 121\nRZ(-1.468629454077294) 122\nRX(pi/2) 122\nRZ(pi/4) 122\nXY(pi) 121 122\nRZ(-3*pi/2) 121\nRX(pi/2) 121\nRZ(3*pi/2) 121\nXY(pi) 121 122\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nRZ(pi/2) 122\nRZ(-5.599954016499741) 135\nCZ 122 135\nRZ(-5.172805967306944) 121\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nRZ(0.4604169869222553) 122\nXY(pi) 122 121\nRZ(1.303360025223555) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(-1.263248882872406) 122\nRZ(1.0354007324160874) 135\nRX(pi/2) 135\nRZ(pi/2) 135\nXY(pi) 122 135\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nXY(pi) 122 135\nRZ(-2.0312133137171506) 121\nRX(pi/2) 121\nRZ(3*pi/4) 121\nRX(-pi/2) 121\nRZ(pi/2) 121\nRZ(-0.7866959879691979) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(1.0341029078443378) 122\nRZ(-pi/2) 135\nRX(pi/2) 135\nRZ(6.033182738160949) 135\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-0.1094894959700629) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(-0.2116563686876655) 122\nRZ(2.4583613629099474) 135\nCZ 135 122\nRZ(pi/2) 121\nRZ(-1.468629454077294) 122\nRX(pi/2) 122\nRZ(pi/4) 122\nXY(pi) 121 122\nRZ(-3*pi/2) 121\nRX(pi/2) 121\nRZ(3*pi/2) 121\nXY(pi) 121 122\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nRZ(pi/2) 122\nRZ(-5.599954016499741) 135\nCZ 122 135\nRZ(-5.172805967306944) 121\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nRZ(0.4604169869222553) 122\nXY(pi) 122 121\nRZ(1.303360025223555) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(-1.263248882872406) 122\nRZ(1.0354007324160874) 135\nRX(pi/2) 135\nRZ(pi/2) 135\nXY(pi) 122 135\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nXY(pi) 122 135\nRZ(-2.0312133137171506) 121\nRX(pi/2) 121\nRZ(3*pi/4) 121\nRX(-pi/2) 121\nRZ(pi/2) 121\nRZ(-0.7866959879691979) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(1.0341029078443378) 122\nRZ(-pi/2) 135\nRX(pi/2) 135\nRZ(6.033182738160949) 135\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "SWAP": {
+        "gate_name": "SWAP",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nSWAP 0 1\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nCZ 122 135\nRZ(-2.228093422063399) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(-0.6572970952685027) 122\nRZ(pi/2) 135\nXY(pi) 135 122\nRZ(pi/2) 135\nRX(pi/2) 135\nRZ(pi/2) 135\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nCZ 122 135\nRZ(-2.228093422063399) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(-0.6572970952685027) 122\nRZ(pi/2) 135\nXY(pi) 135 122\nRZ(pi/2) 135\nRX(pi/2) 135\nRZ(pi/2) 135\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nCZ 122 135\nRZ(-2.228093422063399) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(-0.6572970952685027) 122\nRZ(pi/2) 135\nXY(pi) 135 122\nRZ(pi/2) 135\nRX(pi/2) 135\nRZ(pi/2) 135\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "CSWAP": {
+        "gate_name": "CSWAP",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nCSWAP 0 1 2\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(3*pi/4) 122\nRZ(-pi/4) 135\nRX(pi/2) 135\nXY(pi) 122 135\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nRX(pi/2) 135\nRZ(pi/4) 135\nRX(-pi/2) 135\nXY(pi) 122 135\nRZ(pi/2) 121\nRX(pi/2) 121\nRZ(3.5012267926892573) 121\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nRZ(1.509291138086369) 122\nCPHASE(pi) 122 121\nRZ(-6.221680118471056) 122\nRZ(-5*pi/4) 135\nRX(pi/2) 135\nRZ(pi/2) 135\nCZ 135 122\nRZ(pi/2) 122\nRZ(-2.228093422063399) 135\nRX(pi/2) 135\nRZ(pi) 135\nRX(-pi/2) 135\nRZ(-0.6572970952685027) 135\nXY(pi) 122 135\nRZ(2.781958514490329) 121\nRX(pi/2) 121\nRZ(pi/4) 121\nRX(-pi/2) 121\nRZ(2.6005486935477693) 121\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(5.00678040616716) 122\nXY(pi) 121 122\nRZ(2.111840286836922) 122\nRX(pi/2) 122\nRZ(3*pi/4) 122\nRX(-pi/2) 122\nRZ(-3.5430217564323865) 122\nRZ(0.40142910284259536) 135\nCZ 135 122\nRZ(-2.867821371937059) 121\nRX(pi/2) 121\nRZ(pi) 121\nRX(-pi/2) 121\nRZ(0.5681627074352043) 121\nRZ(-2.7401635507471966) 122\nRX(pi/2) 122\nRZ(3*pi/4) 122\nRX(-pi/2) 122\nRZ(pi) 122\nXY(pi) 122 121\nRZ(pi/2) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nRZ(-0.4014291028425947) 135\nRX(pi/2) 135\nRZ(3*pi/4) 135\nXY(pi) 122 135\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nRX(pi/2) 135\nRZ(pi/4) 135\nRX(-pi/2) 135\nXY(pi) 122 135\nRZ(pi/2) 121\nRX(pi/2) 121\nRZ(pi/4) 121\nRX(pi/2) 122\nRZ(3*pi/2) 122\nRZ(-pi/2) 135\nRX(pi/2) 135\nRZ(-3*pi/2) 135\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/4) 122\nRX(pi/2) 122\nRZ(3*pi/2) 122\nRZ(-3*pi/4) 135\nRX(pi/2) 135\nRZ(pi) 135\nXY(pi) 135 122\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nRZ(-pi/2) 135\nRX(pi/2) 135\nRZ(pi/2) 135\nXY(pi) 135 122\nRZ(-pi/2) 121\nRX(pi/2) 121\nRZ(pi/4) 122\nRX(pi/2) 122\nRZ(pi) 122\nXY(pi) 122 121\nRZ(pi/2) 122\nRX(pi/2) 122\nRZ(3*pi/4) 122\nRX(-pi/2) 122\nRZ(-3*pi/2) 135\nRX(pi/2) 135\nRZ(3*pi/4) 135\nCZ 135 122\nRX(pi/2) 122\nRZ(3*pi/4) 122\nRX(-pi/2) 122\nRZ(pi/2) 122\nCPHASE(pi) 122 121\nRZ(pi/2) 122\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nRZ(-pi/2) 122\nRZ(-5*pi/8) 135\nCZ 135 122\nRZ(-pi) 121\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(-5*pi/8) 122\nXY(pi) 121 122\nRX(pi/2) 122\nXY(pi) 121 122\nRX(pi/2) 121\nXY(pi) 121 122\nRZ(-3*pi/4) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nRZ(-3*pi/8) 135\nXY(pi) 122 135\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nRX(pi/2) 135\nRZ(pi/4) 135\nRX(-pi/2) 135\nXY(pi) 122 135\nRZ(-pi/8) 121\nRZ(-0.9057518489482432) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(2.2358408046415477) 122\nRX(pi/2) 135\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nRZ(pi/4) 122\nRX(pi/2) 122\nRZ(3*pi/2) 122\nRZ(-3*pi/4) 135\nRX(pi/2) 135\nRZ(pi) 135\nXY(pi) 135 122\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nRZ(-pi/2) 135\nRX(pi/2) 135\nRZ(pi/2) 135\nXY(pi) 135 122\nRZ(-pi/2) 121\nRX(pi/2) 121\nRZ(pi/4) 122\nRX(pi/2) 122\nRZ(pi) 122\nXY(pi) 122 121\nRZ(pi/2) 122\nRX(pi/2) 122\nRZ(3*pi/4) 122\nRX(-pi/2) 122\nRZ(-3*pi/2) 135\nRX(pi/2) 135\nRZ(3*pi/4) 135\nCZ 135 122\nRX(pi/2) 122\nRZ(3*pi/4) 122\nRX(-pi/2) 122\nRZ(pi/2) 122\nCPHASE(pi) 122 121\nRZ(pi/2) 122\nRX(pi/2) 122\nRZ(pi/4) 122\nRX(-pi/2) 122\nRZ(-pi/2) 122\nRZ(-5*pi/8) 135\nCZ 135 122\nRZ(-pi) 121\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(-5*pi/8) 122\nXY(pi) 121 122\nRX(pi/2) 122\nXY(pi) 121 122\nRX(pi/2) 121\nXY(pi) 121 122\nRZ(-3*pi/4) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nRZ(-3*pi/8) 135\nXY(pi) 122 135\nRZ(-pi/2) 122\nRX(pi/2) 122\nRZ(pi/2) 122\nRX(pi/2) 135\nRZ(pi/4) 135\nRX(-pi/2) 135\nXY(pi) 122 135\nRZ(-pi/8) 121\nRZ(-0.9057518489482432) 122\nRX(pi/2) 122\nRZ(pi) 122\nRX(-pi/2) 122\nRZ(2.2358408046415477) 122\nRX(pi/2) 135\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    },
+    "ISWAP": {
+        "gate_name": "ISWAP",
+        "gate_program": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nISWAP 0 1\n",
+        "compiled_gate": {
+            "standard": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nXY(pi) 135 122\nHALT\n",
+            "native_quil": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nXY(pi) 135 122\n",
+            "executable": "PRAGMA INITIAL_REWIRING \"PARTIAL\"\nXY(pi) 135 122\n"
+        },
+        "device": "Aspen-M-2-qvm"
+    }
+}

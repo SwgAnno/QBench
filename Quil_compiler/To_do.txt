@@ -1,0 +1,17 @@
+Creare un file json da quello che ho appena fatto.
+
+Provare a vedere ad occhio se individuo le porte nei 2 cnot
+
+Evolvere sulla sfera di Bloch le porte di singolo qubit
+
+Transpiler QUIL to Braket/Qiskit
+
+automatizzare individuazione di porte fisiche
+trovare creazione dei cphaseshift a priori dalla fase
+
+Cercare di studiare meglio come funzionano i compilatori
+
+
+Transpiler OpenQASM to QUIl
+
+
