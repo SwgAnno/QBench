@@ -57,20 +57,6 @@ class quil_gate(object):
         self.gate_program = Program(rewiring_string) + gate(*range(n_inputs))
         self.compiled_gate = Compiled_gate (device,self.gate_program)
         
-class quil_gate(object):
-    def __init__( self, device, gate, rewiring_strategy='PARTIAL'):
-        self.device = device
-        
-        
-        rewiring_string='PRAGMA INITIAL_REWIRING "' +rewiring_strategy +'"'
-        
-        
-        n_inputs = len(signature(gate).parameters)
-        self.gate_name = get_gate_name (str(gate(*range(n_inputs))))
-
-        self.gate_program = Program(rewiring_string) + gate(*range(n_inputs))
-        self.compiled_gate = Compiled_gate (device,self.gate_program)
-        
     def as_dict(self):
         return{
             'gate_name' : self.gate_name,
@@ -78,6 +64,21 @@ class quil_gate(object):
             'compiled_gate' : self.compiled_gate.as_dict(),
             'device'    : str(self.device),
         }
+
+
+class Compiled_Circuit(object):
+    def __init__(self,device,program):
+        self.standard = device.compile(program)
+        self.native_quil = device.compiler.quil_to_native_quil(program, protoquil=True)
+        self.executable = device.compiler.native_quil_to_executable(self.native_quil)
+
+    def as_dict(self):
+        return {
+            'standard'  : str(self.standard),
+            'native_quil'  : str(self.native_quil),
+            'executable'   : str(self.executable)
+            }
+
 
 
 
@@ -224,7 +225,37 @@ def get_braket_qubit_number(qubit_mapping,quil_qubit):
  
     return qubit_mapping[quil_qubit]
 
+def transpile_braket_to_quil(braket_circuit):
+    n_tot_qubits = len(braket_circuit.qubits.item_list)
+    #qc = get_qc(name='Aspen-M-2',as_qvm=True)
+    quil_prog = Program()
+    ro = quil_prog.declare('ro', 'BIT', n_tot_qubits)
+    quil_prog += Pragma('INITIAL_REWIRING', ['"PARTIAL"'])
+    quil_prog += RESET()
 
+    instructions = braket_circuit.instructions
+    for instruction in instructions:
+        braket_gate = str(instruction.operator).replace('(',' ').split()[0]
+        n_qubits = instruction.operator.qubit_count
+        target_qubits = []
+        for i in range(n_qubits):
+            target_qubits.append(instruction.target.item_list[i].real)
+        
+        parameter = None
+        if '_parameters' in instruction.operator.__dict__.keys():
+            parameter = instruction.operator.__dict__['_parameters']
+
+        quil_gate = QUANTUM_GATES [gate_name_braket_to_quil(braket_gate)]
+        
+        inputs = parameter + target_qubits if parameter  else target_qubits
+        quil_prog += quil_gate(*inputs)
+
+    for i in range(n_tot_qubits):
+        quil_prog += MEASURE(braket_circuit.qubits.item_list[i].real, ro[i] )
+    return quil_prog
+
+def gate_name_braket_to_quil(gate_name):
+    return gate_name.replace('Shift','').upper()
 
 # def transpile_tuple_creation():
 #     """

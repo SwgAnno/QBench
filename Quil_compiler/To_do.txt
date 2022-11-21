@@ -1,4 +1,4 @@
-Creare un file json da quello che ho appena fatto.
+##Creare un file json da quello che ho appena fatto.
 
 Provare a vedere ad occhio se individuo le porte nei 2 cnot
 
@@ -14,4 +14,7 @@ Cercare di studiare meglio come funzionano i compilatori
 
 Transpiler OpenQASM to QUIl
 
+
+
+To do: aggiungere numero shot al transpiler
 
