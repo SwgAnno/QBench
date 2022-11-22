@@ -248,12 +248,19 @@ class DeviceScanner(object):
         print( "Device availability: ", device.is_available)
         print( "Device region: ", device.get_device_region( device.arn))
 
+        self.plot_topology()
+
+    #just plot device topology
+    def plot_topology(self):
+
+        device = self.get_device()
         topo = device.topology_graph
         
         if topo == None:
             print("No associated device topology")
         else:
             nx.draw_kamada_kawai(device.topology_graph, with_labels=True, font_weight="bold")
+
 
 
 class Plotter(object) :

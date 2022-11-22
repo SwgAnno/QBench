@@ -78,3 +78,42 @@ def inverse_qft(qubits,swaps=True):
         qftcirc.h(qubits[k])
     
     return qftcirc
+
+# apply id or sigmax to obtain a definite integer as input
+# (in binary representation)
+@circuit.subroutine(register=True)
+def integer_input(qubits, x):
+    # instantiate circuit object
+    circ = Circuit()
+    
+    # get number of qubits
+    num_qubits = len(qubits)
+
+    #must be able to represent input
+    assert x < 2**num_qubits
+    bitstring = format(x, "0"+ str(num_qubits) +"b")
+
+    #print(bitstring)
+
+    #todo: need to reverse iteration(?)
+    for i in range(num_qubits):
+        if bitstring[i] == "1" :
+            circ.x(qubits[i])
+
+
+    return circ
+
+#get special state preimage of a defined integer for qft
+@circuit.subroutine(register=True)
+def transformed_input(qubits, x):
+
+    # get number of qubits
+    num_qubits = len(qubits)
+
+    circ = Circuit()
+
+    circ.h(qubits)
+    for ii in range(num_qubits - 1):
+        circ.rz(ii+1, math.pi/(2**ii))
+
+    return circ
