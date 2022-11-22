@@ -97,9 +97,16 @@ def qpe(precision_qubits, query_qubits, unitary, control_unitary=True):
     for ii, qubit in enumerate(reversed(precision_qubits)):
         # Set power exponent for unitary
         power = ii
-
+        #se ho passato un circuito applico quello
+        if callable(unitary):
+            unitary_circ = unitary
+            assert isinstance(unitary_circ(qubit,query_qubits),Circuit)
+            for _ in range(2 ** power):                
+                qpe_circ.add_circuit(unitary_circ(qubit,query_qubits))
+        
+        
         # Alterantive 1: Implement C-(U^{2^k})
-        if control_unitary:
+        elif control_unitary:
             # Define the matrix U^{2^k}
             Uexp = np.linalg.matrix_power(unitary, 2 ** power)
 
@@ -221,9 +228,9 @@ def run_qpe(
     query_circuit,
     device,
     items_to_keep=1,
-    shots=1000,
+    shots=100,
     save_to_pck=False,
-):
+    debug=False):
     """
     Function to run QPE algorithm end-to-end and return measurement counts.
 
@@ -232,7 +239,7 @@ def run_qpe(
 
         query_qubits: list of qubits defining the query register
 
-        unitary: Matrix representation of the unitary whose eigenvalues we wish to estimate
+        unitary: Matrix representation of the unitary whose eigenvalues we wish to estimate, IT CAN BE ALSO A SUBROUTINE OF A CIRCUIT, IN ORDER TO RUN ON QPUS!!!
 
         query_circuit: query circuit for state preparation of query register
 
@@ -255,14 +262,19 @@ def run_qpe(
 
     # Add desired results_types
     circ.probability()
-
+    if debug:
+        print(circ)
     # Run the circuit with all zeros input.
     # The query_circuit subcircuit generates the desired input from all zeros.
     task = device.run(circ, shots=shots)
-
+    
+    return get_and_analyze_result(task,num_qubits,precision_qubits,circ,items_to_keep,save_to_pck)
+    
+def get_and_analyze_result(task,num_qubits,precision_qubits,circ=None,items_to_keep=1,save_to_pck = False):
     # get result for this task
     result = task.result()
 
+   
     # get metadata
     metadata = result.task_metadata
 
