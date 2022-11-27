@@ -1,6 +1,6 @@
 ##Creare un file json da quello che ho appena fatto.
 
-Provare a vedere ad occhio se individuo le porte nei 2 cnot
+##Provare a vedere ad occhio se individuo le porte nei 2 cnot
 
 Evolvere sulla sfera di Bloch le porte di singolo qubit
 
@@ -11,10 +11,10 @@ trovare creazione dei cphaseshift a priori dalla fase
 
 Cercare di studiare meglio come funzionano i compilatori
 
+Testare su quilc una porta cnot tra qubit non vicini e vedere se impone gli swap
 
 Transpiler OpenQASM to QUIl
 
 
-
-To do: aggiungere numero shot al transpiler
+aggiungere numero shot al transpiler
 

@@ -101,7 +101,7 @@ def save_gates_to_file(filename,gate):
         #print(old_json)
     #if the file is not created we try
     except:
-       json_db = {}
+        json_db = {}
     
     gate_dic = (gate.as_dict())
     json_db[gate_dic['gate_name']] = gate.as_dict()
