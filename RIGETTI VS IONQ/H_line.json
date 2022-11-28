@@ -1,0 +1,42 @@
+{
+   "5": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/099f1baf-1411-4e24-9201-1ce9c3752f83"
+      },
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/6d565014-efd4-44bc-8b0b-9b2d37e1ca0b"
+      }
+   },
+   "10": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/48a168f7-63a6-4db9-84c2-8f9ff506d1a7"
+      },
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/41d995a1-23b8-4a17-a4ea-a454da464c4d"
+      }
+   },
+   "22": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/f1bd89d1-5b0a-4d3b-827e-467ead50b5f1"
+      },
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/d91aee3f-fded-4458-85ad-107bad22e1fe"
+      }
+   },
+   "47": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/3f48b872-6582-4e82-b43e-f47811f4398b"
+      },
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/f343e3d6-3b4f-4d16-a0ab-7c26b931432a"
+      }
+   },
+   "100": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/e08c5749-e902-49fd-bf7c-54415b6f016d"
+      },
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/5b3b3c53-2090-438d-9db8-b22c277d0847"
+      }
+   }
+}
