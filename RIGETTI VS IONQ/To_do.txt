@@ -1,0 +1,6 @@
+Creare un file Circuits()
+in modo da avere li sopra i circuiti fondamentali (QFT,qpe ecc ecc)
+
+Creare un cost simulator
+
+sistemare gli utils in modo che funzionino anche con il local simulator
