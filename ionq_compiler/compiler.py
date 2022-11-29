@@ -202,45 +202,45 @@ class IonQCompiler :
             print(i)
             if i[0] == "x":
                 if abs(i[1]-0.5*np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+0)%1)
+                    out.gpi2(i[2][0], (qphase[i[2][0]]+0)%(2*np.pi))
 
                 elif abs(i[1]+0.5*np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+0.5)%1)
+                    out.gpi2(i[2][0], (qphase[i[2][0]]+np.pi)%(2*np.pi))
 
                 elif abs(i[1]-np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+0)%1)
+                    out.gpi2(i[2][0], (qphase[i[2][0]]+0)%(2*np.pi))
 
                 elif abs(i[1]+np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+0.5)%1)
+                    out.gpi2(i[2][0], (qphase[i[2][0]]+np.pi)%(2*np.pi))
 
                 else :
-                    out.gpi2( i[2][0], (qphase[i[2][0]]+0.75)%1 )
-                    qphase[i[2][0]]=(qphase[i[2][0]]-i[1]/(2*np.pi))%1
-                    out.gpi2( i[2][0], (qphase[i[2][0]]+0.25)%1 )
+                    out.gpi2( i[2][0], (qphase[i[2][0]]+(3*np.pi/2))%(2*np.pi) )
+                    qphase[i[2][0]]=(qphase[i[2][0]]-i[1])%(2*np.pi)
+                    out.gpi2( i[2][0], (qphase[i[2][0]]+(np.pi/2))%(2*np.pi) )
 
             elif i[0] == "y":
                 if abs(i[1]-0.5*np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+0.25)%1)
+                    out.gpi2(i[2][0], (qphase[i[2][0]]+(np.pi/2))%(2*np.pi))
 
                 elif abs(i[1]+0.5*np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+0.75)%1)
+                    out.gpi2(i[2][0], (qphase[i[2][0]]+(3*np.pi/2))%(2*np.pi))
 
                 elif abs(i[1]-np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+0.25)%1)
+                    out.gpi2(i[2][0], (qphase[i[2][0]]+(np.pi/2))%(2*np.pi))
 
                 elif abs(i[1]+np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+0.75)%1)
+                    out.gpi2(i[2][0], (qphase[i[2][0]]+(3*np.pi/2))%(2*np.pi))
 
                 else :
-                    out.gpi2( i[2][0], (qphase[i[2][0]]+0)%1 )
-                    qphase[i[2][0]]=(qphase[i[2][0]]-i[1]/(2*np.pi))%1
-                    out.gpi2( i[2][0], (qphase[i[2][0]]+0.5)%1 )
+                    out.gpi2( i[2][0], (qphase[i[2][0]]+0)%(2*np.pi) )
+                    qphase[i[2][0]]=(qphase[i[2][0]]-i[1])%(2*np.pi)
+                    out.gpi2( i[2][0], (qphase[i[2][0]]+np.pi)%(2*np.pi) )
 
             elif i[0] == "z":
-                qphase[i[2][0]] = (qphase[i[2][0]]-i[1]/(2*np.pi))%1
+                qphase[i[2][0]] = (qphase[i[2][0]]-i[1])%(2*np.pi)
 
             elif i[0] == "xx":
-                out.ms(i[2][0],i[2][1], qphase[i[2][0]], (qphase[i[2][1]]+0.5)%1 )
+                out.ms(i[2][0],i[2][1], qphase[i[2][0]], (qphase[i[2][1]]+np.pi)%(2*np.pi) )
 
 
         return out
