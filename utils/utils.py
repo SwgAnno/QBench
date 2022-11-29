@@ -326,4 +326,25 @@ class DeviceUtils(object) :
             return AwsDevice('arn:aws:braket:eu-west-2::device/qpu/oqc/Lucy')
         if short_id == "rigetti":
             return AwsDevice('arn:aws:braket:us-west-1::device/qpu/rigetti/Aspen-M-2')
+        
+        
+        
+        
+        
+    
+########################################################à
+           
+def qasm_source( circ):
+    """
+    Dirty implementation to extract QASM 3.0 source from a local simulator task
+    """
+
+    device = LocalSimulator()
+    result = device.run(circ, shots = 1).result()
+    
+    return result.additional_metadata.action.source
+
+
+########################################################à
+
     

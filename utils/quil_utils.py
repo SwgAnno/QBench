@@ -65,6 +65,8 @@ class quil_gate(object):
             'device'    : str(self.device),
         }
 
+    
+    
 
 class Compiled_Circuit(object):
     def __init__(self,device,program):
@@ -78,11 +80,34 @@ class Compiled_Circuit(object):
             'native_quil'  : str(self.native_quil),
             'executable'   : str(self.executable)
             }
+    
+    
+    
 
+class Quil_to_Braket_Transpiler(object):
+    def __init__(self,string_circ,quil_rewiring = False):
+        self.braket_circ,self.qubit_mapping = transpile_quil_to_braket(string_circ,quil_rewiring)
+        
+        
 
+        
+        
+        
+class Braket_to_Quil_Transpiler(object):
+    def __init__(self,braket_circ):
+        self.quil_circ = transpile_braket_to_quil(braket_circ)
+    
+    def quil_compiled_circuit(self,device):
+        return Compiled_Circuit(device,self.quil_circ)
+    
+    def verbatim_circ(self,compiler_device):
+        
+        return Quil_to_Braket_Transpiler(str(self.quil_compiled_circuit(compiler_device).executable), quil_rewiring=True).braket_circ
 
-
-
+    
+    
+    
+    
 def save_gates_to_file(filename,gate):
     '''
     Save to a json file the compiled version of gates.
@@ -131,14 +156,17 @@ def print_db(dic):
             print(key, ':', value)
 
 
-def transpile_quil_to_braket(string_circ):
+            
+def transpile_quil_to_braket(string_circ,quil_rewiring = False):
     """
 
     Parameters
     ----------
     string_circ: str
     string version of a quil circuit
-
+    quil_rewiring: book, keeps qubits labeling of quil or standard :(O:n_qubits)
+    
+    
     Output
     ----------
     braket_circ: aws_braket.Circuit()
@@ -199,13 +227,14 @@ def transpile_quil_to_braket(string_circ):
         for quil_qubit in quil_qubits:
             braket_qubits.append(get_braket_qubit_number(qubit_mapping,quil_qubit))
         
-        string_braket_qubits = []
-        braket_gate_cmd = braket_gate + '(' + ','.join(braket_qubits) 
+        gate_qubits = braket_qubits if not quil_rewiring else quil_qubits
+        
+        braket_gate_cmd = braket_gate + '(' + ','.join(gate_qubits) 
     
         braket_gate_cmd += ','+ angle + ')' if gate_has_angle else ')'
         braket_circ_cmd += '.'+ braket_gate_cmd
     exec(braket_circ_cmd)
-    return [braket_circ,braket_circ_cmd]
+    return braket_circ,qubit_mapping
 
 
 def reverseTuple(list_of_tuple):
@@ -224,6 +253,7 @@ def get_braket_qubit_number(qubit_mapping,quil_qubit):
         qubit_mapping[quil_qubit] = str(len(qubit_mapping.keys()))
  
     return qubit_mapping[quil_qubit]
+
 
 def transpile_braket_to_quil(braket_circuit):
     n_tot_qubits = len(braket_circuit.qubits.item_list)
