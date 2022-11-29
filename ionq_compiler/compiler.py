@@ -208,10 +208,10 @@ class IonQCompiler :
                     out.gpi2(i[2][0], (qphase[i[2][0]]+np.pi)%(2*np.pi))
 
                 elif abs(i[1]-np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+0)%(2*np.pi))
+                    out.gpi(i[2][0], (qphase[i[2][0]]+0)%(2*np.pi))
 
                 elif abs(i[1]+np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+np.pi)%(2*np.pi))
+                    out.gpi(i[2][0], (qphase[i[2][0]]+np.pi)%(2*np.pi))
 
                 else :
                     out.gpi2( i[2][0], (qphase[i[2][0]]+(3*np.pi/2))%(2*np.pi) )
@@ -226,10 +226,10 @@ class IonQCompiler :
                     out.gpi2(i[2][0], (qphase[i[2][0]]+(3*np.pi/2))%(2*np.pi))
 
                 elif abs(i[1]-np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+(np.pi/2))%(2*np.pi))
+                    out.gpi(i[2][0], (qphase[i[2][0]]+(np.pi/2))%(2*np.pi))
 
                 elif abs(i[1]+np.pi)<1e-6:
-                    out.gpi2(i[2][0], (qphase[i[2][0]]+(3*np.pi/2))%(2*np.pi))
+                    out.gpi(i[2][0], (qphase[i[2][0]]+(3*np.pi/2))%(2*np.pi))
 
                 else :
                     out.gpi2( i[2][0], (qphase[i[2][0]]+0)%(2*np.pi) )
@@ -240,7 +240,10 @@ class IonQCompiler :
                 qphase[i[2][0]] = (qphase[i[2][0]]-i[1])%(2*np.pi)
 
             elif i[0] == "xx":
-                out.ms(i[2][0],i[2][1], qphase[i[2][0]], (qphase[i[2][1]]+np.pi)%(2*np.pi) )
+                if i[1]>0 :
+                    out.ms(i[2][0],i[2][1], qphase[i[2][0]], qphase[i[2][1]] )
+                else :
+                    out.ms(i[2][0],i[2][1], qphase[i[2][0]], (qphase[i[2][1]]+np.pi)%(2*np.pi) )
 
 
         return out
