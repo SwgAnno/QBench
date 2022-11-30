@@ -86,7 +86,7 @@ class Compiled_Circuit(object):
 
 class Quil_to_Braket_Transpiler(object):
     def __init__(self,string_circ,quil_rewiring = False):
-        self.braket_circ,self.qubit_mapping = transpile_quil_to_braket(string_circ,quil_rewiring)
+        self.braket_circ, self.qubit_mapping = transpile_quil_to_braket(string_circ,quil_rewiring)
         
         
 
