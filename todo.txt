@@ -1,0 +1,5 @@
+Vedere quali qubits fanno schifo dalle simulazioni di Hadamard
+Separare le fonti di errore nelle HADAMARD
+Probabilità di errore con multipli GHZ su IonQ
+Fare più copie dello stesso circuito sugli 80 qubits di righetti
+Pulse control righetti
