@@ -1,0 +1,27 @@
+{
+   "10": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/10825f85-6bb7-46c2-9e2c-6c6b945078b6"
+      }
+   },
+   "20": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/8723cfd4-008f-4b90-8b0c-e5072f591537"
+      }
+   },
+   "30": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/36892d61-d3f2-4627-9b72-9ee0f8fcad7a"
+      }
+   },
+   "50": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/ab19e3ab-c5d9-4579-8846-66a9dab86797"
+      }
+   },
+   "100": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/485c59dd-99a5-4d45-a635-8d01da65c8a1"
+      }
+   }
+}

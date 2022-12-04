@@ -1,0 +1,7 @@
+{'task_1':{'description':'IONQ 200 Hadamard verbatim_test',
+          'id':'arn:aws:braket:us-east-1:058017682654:quantum-task/baee28a1-34ce-4517-b1f7-5e54e13f3925'},
+ 'task_2':{'description':'Rigetti 4 Hadamard verbatim test'.
+          'id':'arn:aws:braket:us-west-1:058017682654:quantum-task/e8448828-9a9d-4f97-85bb-21e84917286f'}
+
+
+}
