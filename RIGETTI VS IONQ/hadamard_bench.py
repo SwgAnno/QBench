@@ -51,7 +51,6 @@ def H_line (n_qubits,line_length,device_name):
         transpiled_H_gate = Braket_to_Quil_Transpiler(H_gate)
         compiled_H = transpiled_H_gate.verbatim_circ(qc)
         
-        
         H_line_circ = Circuit()
         for _ in range(line_length):
             H_line_circ.add_circuit(compiled_H)
@@ -110,7 +109,7 @@ def get_rigetti_compilation_map( src ):
 
     measure_re = "MEASURE (\d+) \w+\[(\d+)\]"
 
-    matches = re.findall(src, measure_re)
+    matches = re.findall(measure_re,src)
 
     out = dict()
     for m in matches:
