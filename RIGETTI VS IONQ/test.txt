@@ -1,0 +1,5 @@
+Per la simulazione di GHZ osserviamo che per via dei gate fondamentali di IONq in media necessita di molti meno gate per eseguire circuiti in cui l'entanglement sia molto presente.
+Ci domandiamo dunque se il vantaggio di performance sia dato principalmente dal ridotto numero di gate per eseguire il circuito o da un'effettiva più alta qualità dei gates.
+Per portare a parità di condizioni i 2 sistemi con un benchmark il cui obiettivo ultimo sia comunque generare uno stato GHZ aggiungiamo dei gate al circuito di IonQ in modo che la profondità del circuito sia comparabile con quella di Rigetti, senza però andare a modificare il circuito complessivo.
+Ovvero:
+Aggiungiamo scegliendo a caso la fase un gate nativo di IonQ e il suo inverso, (così da ottenere l'identità) tante volte quante necessarie per raggiungere Rigetti

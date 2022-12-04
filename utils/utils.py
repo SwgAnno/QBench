@@ -210,7 +210,10 @@ class DeviceScanner(object):
 
     def get_supported_gates(self):
         return self.get_device().properties.action['braket.ir.jaqcd.program'].supportedOperations
-
+    
+    def is_available(self):
+        return self.get_device().is_available
+    
     #leverage _get_qpu_task_cost to extract pricing infos
     def get_cost_infos(self):
 
@@ -347,4 +350,17 @@ def qasm_source( circ):
 
 ########################################################à
 
+
+
+
+
+class Gate_number ():
+    def __init__(self,Braket_circuit):
+        self.one_qubit = len([instruction for instruction in Braket_circuit.instructions if len(instruction.target.item_list) == 1])
+        self.two_qubits =  len([instruction for instruction in Braket_circuit.instructions if len(instruction.target.item_list) == 2])
+        self.three_qubits =  len([instruction for instruction in Braket_circuit.instructions if len(instruction.target.item_list) == 3])
+        
+        self.total_gates = self.one_qubit+self.two_qubits+self.three_qubits
+        
+        self.entangling_gates = self.total_gates - self.one_qubit
     

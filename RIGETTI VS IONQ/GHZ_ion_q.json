@@ -1,0 +1,42 @@
+{
+   "2": {
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/5f0c4647-213f-4895-9349-2fd0d0faf39d",
+         "BenchType": "GHZ",
+         "n_shots": 1000,
+         "n_qubits": 2
+      }
+   },
+   "4": {
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/5929cfa2-3ccf-486d-8dce-5a557297cfec",
+         "BenchType": "GHZ",
+         "n_shots": 1000,
+         "n_qubits": 4
+      }
+   },
+   "6": {
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/b0c76de2-f8b6-438e-9e1b-178b6cd531e7",
+         "BenchType": "GHZ",
+         "n_shots": 1000,
+         "n_qubits": 6
+      }
+   },
+   "8": {
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/7355fb04-4d8c-42fe-a249-85976b6279ea",
+         "BenchType": "GHZ",
+         "n_shots": 1000,
+         "n_qubits": 8
+      }
+   },
+   "10": {
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/18ab9e85-29ae-4926-a73e-416e78f968ba",
+         "BenchType": "GHZ",
+         "n_shots": 1000,
+         "n_qubits": 10
+      }
+   }
+}
