@@ -1,0 +1,17 @@
+{
+   "rigetti_s1000_q11_hl10": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/c7577bea-1fe5-47cb-87db-6b316049e670"
+   },
+   "rigetti_s1000_q11_hl20": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/2f46f034-c743-4321-b0a6-96e3843e2094"
+   },
+   "rigetti_s1000_q11_hl30": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/d12fefa9-1d89-4d2b-9e3a-f804a8c8adec"
+   },
+   "rigetti_s1000_q11_hl50": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/19674d6f-f2a0-4cad-8022-1ea67ac6fff3"
+   },
+   "rigetti_s1000_q11_hl100": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/30c6cd8c-4c5b-4116-95fd-fe385c60e64f"
+   }
+}

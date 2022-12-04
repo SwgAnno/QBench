@@ -1,0 +1,17 @@
+{
+   "ionq_s1000_q11_hl10": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/a7f2f1c0-213d-4d55-a12e-0c59c9f960d2"
+   },
+   "ionq_s1000_q11_hl20": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/8131729d-71bc-4c1b-9557-8c0add73269c"
+   },
+   "ionq_s1000_q11_hl30": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/f8034bc8-8788-44c9-ac19-b6a7fa152d49"
+   },
+   "ionq_s1000_q11_hl50": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/1db588ba-9c8d-403d-bffb-fe81ccc346af"
+   },
+   "ionq_s1000_q11_hl100": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/812dd426-7100-484e-aee6-40e837b4bcba"
+   }
+}
