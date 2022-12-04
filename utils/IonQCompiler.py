@@ -105,14 +105,14 @@ class IonQCompiler :
 
     def compile(self, circ) :
         """
-        accept a braket circuit and returns a compilation node structure
+        accept a braket circuit and returns a Ionq ready braket circuit
         """
 
         src = self._compile_step1( circ)
         #print(src)
         n_qubits, instr = self._step1_to_list( src)
 
-#         print(n_qubits)
+        #print(n_qubits)
 
 
         out = self._compile_step2(n_qubits, instr)
@@ -121,7 +121,7 @@ class IonQCompiler :
 
     def _compile_step1(self, circ):
         """
-        accept a general braket circuit and returns a Qiskit circuit which uses only rx,ry,rz, rxx
+        accept a general braket circuit and returns a Qiskit Qasm source which uses only rx,ry,rz, rxx
         """
 
         src = qasm_downgrade(qasm_source( circ))
@@ -133,6 +133,9 @@ class IonQCompiler :
         return str(trans_qc.qasm())
 
     def _step1_to_list(self, src):
+        """
+        Parse QASM src and store number of qubits and rx/y/z/xx instruction and parameters
+        """
 
         instr = []
         n_qubits = -1
@@ -162,7 +165,7 @@ class IonQCompiler :
 
     def gate_tuple(self, m):
         """
-        accept a match case as input and returns a tuple for CompiledGate init
+        accept an instruction match case as input and returns a tuple with the relevant parameters
         """
         gate = m.group(1)
         par = self.format_params(m.group(2))
@@ -176,6 +179,9 @@ class IonQCompiler :
 
 
     def format_params(self, p):
+        """
+        format parameters with litteral pi in it, returns an equivalent float
+        """
 
         if "pi" in p:
             m = re.search("(-)?((\w+)\*)?pi(/(\w+))?",p)
@@ -192,7 +198,9 @@ class IonQCompiler :
             return p
 
     def _compile_step2(self, n_qubits, instr):
-        
+        """
+        Convert rx/y/z/xx gates into IonQ natives in a new braket circuit
+        """
 
         out = Circuit()
 
