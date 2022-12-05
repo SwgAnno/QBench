@@ -240,19 +240,19 @@ def transpile_quil_to_braket(string_circ,quil_rewiring = False):
 def reverseTuple(list_of_tuple):
     return list(map(lambda tup: tup[::-1], list_of_tuple))
 
-def get_braket_qubit_number(qubit_mapping,quil_qubit):
+def get_braket_qubit_number(qubit_mapping,physical_qubit):
     """
     Returns the mapping in braket of quil qubit
     
     Parameters
     ----------
     qubit_mapping = dict
-    quil_qubit = str
+    physical_qubit = str
     """
-    if not quil_qubit in qubit_mapping.keys():
-        qubit_mapping[quil_qubit] = str(len(qubit_mapping.keys()))
+    if not physical_qubit in qubit_mapping.keys():
+        qubit_mapping[physical_qubit] = str(len(qubit_mapping.keys()))
  
-    return qubit_mapping[quil_qubit]
+    return qubit_mapping[physical_qubit]
 
 
 def transpile_braket_to_quil(braket_circuit):

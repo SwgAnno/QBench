@@ -328,7 +328,7 @@ class Plotter(object) :
         plt.show()
 
 class DeviceUtils(object) :
-
+    """ To be done with dictionaries"""
     #shortcut to get a device without arn
     def get_device(short_id) :
 
@@ -347,3 +347,5 @@ class DeviceUtils(object) :
         if short_id == "rigetti":
             return AwsDevice('arn:aws:braket:us-west-1::device/qpu/rigetti/Aspen-M-2')
     
+    def list_names():
+        names = ["local","sv1","dm1","tn1","ionq","oqc","rigetti"]
