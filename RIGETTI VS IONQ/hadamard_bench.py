@@ -155,7 +155,7 @@ def load_tasks( filename : str):
 
     return out
 
-def plot_z_per_qubit(scanner : BraketTaskScanner, ax = None) :
+def plot_z_per_qubit(scanner : BraketTaskScanner, cmap = "RdYlGn_r", ax = None) :
 
     if ax == None:
         fig,ax = plt.subplots(1,1,figsize = (5,6))
@@ -184,12 +184,12 @@ def plot_z_per_qubit(scanner : BraketTaskScanner, ax = None) :
     colors = [ perr[compilation_map[x]] for x in graph.nodes]
     #print(colors)
     #obj = ax.imshow(perr, vmin = 0, vmax = 1, cmap = "inferno")
-    nx.draw_kamada_kawai(graph, with_labels=True, node_color=colors, node_size=300, cmap="RdYlGn_r", vmin = 0, vmax = 1, ax = ax)
+    nx.draw_kamada_kawai(graph, with_labels=True, node_color=colors, node_size=300, cmap=cmap, vmin = 0, vmax = 1, ax = ax)
 
 
     divider = make_axes_locatable(ax)
     cax = divider.append_axes('right', size='5%', pad=0.05)
-    sm = plt.cm.ScalarMappable(cmap="RdYlGn_r", norm=plt.Normalize(vmin = 0, vmax=1))
+    sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin = 0, vmax=1))
     plt.colorbar(sm, cax=cax, orientation='vertical')
 
 
