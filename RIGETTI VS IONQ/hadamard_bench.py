@@ -98,15 +98,15 @@ def result_per_qubit( result, H_len : int = 0):
 
     return pd.DataFrame(measure)
 
-def plot_result_per_qubit(data : pd.DataFrame, ax = None ,label=None):
+def plot_result_per_qubit(data : pd.DataFrame, ax = None ):
 
     if ax == None:
         fig, ax = plt.subplots(1, 1, figsize=(5, 6))
 
-    sns.barplot(x="qubit_n", y="counts",hue="value", data=data,ax=ax,label=label)
+    sns.barplot(x="qubit_n", y="counts",hue="value", data=data,ax=ax)
     ax.set_ylabel("Counts")
     ax.set_xlabel("Qubit_number")
-    
+
     return ax
 
 def get_qubit_counts(df, n_qubit):

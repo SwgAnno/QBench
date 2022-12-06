@@ -97,7 +97,7 @@ def simulate_noise_aspen_m_2(braket_circ : Circuit()):
     #exploiting transpilers to have a computable circuit with logical qubits starting from 0
     
     #simulation    
-    np.random.seed(42)
+    #np.random.seed(42)
     noisy_circ = noise_model.apply(braket_circ)
     # quil_noisy_circ = Braket_to_Quil_Transpiler(noisy_circ).quil_circ
     # rewired_noisy_circ = Quil_to_Braket_Transpiler(quil_noisy_circ,quil_rewiring=False)
