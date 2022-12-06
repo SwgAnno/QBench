@@ -3,6 +3,8 @@ import sys
 # AWS imports: Import Braket SDK modules
 
 import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+
 
 from braket.circuits import Circuit, Gate, Instruction, circuit, Observable
 from braket.devices import LocalSimulator
@@ -23,6 +25,7 @@ from IonQCompiler import IonQCompiler
 import json
 import pandas as pd
 import seaborn as sns
+import networkx as nx
 
 import re
 
@@ -67,7 +70,7 @@ def H_line (n_qubits,line_length,device_name):
     return H_line_circ
 
 
-def result_per_qubit( result, H_len : int):
+def result_per_qubit( result, H_len : int = 0):
     """
     Process Braket task results in result into a dataframe
     Output dataframe sorts results per qubit and add a label
@@ -106,6 +109,10 @@ def plot_result_per_qubit(data : pd.DataFrame, ax = None ,label=None):
     
     return ax
 
+def get_qubit_counts(df, n_qubit):
+    return df.iloc[n_qubit:(n_qubit+2),3]
+
+
 def get_rigetti_compilation_map( src ):
 
     measure_re = "MEASURE (\d+) \w+\[(\d+)\]"
@@ -114,7 +121,7 @@ def get_rigetti_compilation_map( src ):
 
     out = dict()
     for m in matches:
-        out[int(m[1])] = int(m[0])
+        out[int(m[0])] = int(m[1])
 
     return out
 
@@ -147,3 +154,53 @@ def load_tasks( filename : str):
 
 
     return out
+
+def plot_z_per_qubit(scanner : BraketTaskScanner, ax = None) :
+
+    if ax == None:
+        fig,ax = plt.subplots(1,1,figsize = (5,6))
+
+    
+    df = result_per_qubit( scanner.get_results())
+    perr = []
+
+    if scanner.get_task_type() == "RIGETTI":
+        compilation_map = get_rigetti_compilation_map( scanner.get_compiled_circuit())
+    elif scanner.get_task_type() == "IONQ":
+        compilation_map = { x:x for x in range(11)}
+    else:
+        raise KeyError("task type not supported")
+
+    graph = scanner.get_device().topology_graph
+
+    
+    for qubit in range(len(df["qubit_n"])//2):
+
+        counts = np.array(df[df.qubit_n == qubit]["counts"])
+        #print(counts)
+
+        perr.append( counts[1]/(counts[1]+counts[0]))
+
+    colors = [ perr[compilation_map[x]] for x in graph.nodes]
+    #print(colors)
+    #obj = ax.imshow(perr, vmin = 0, vmax = 1, cmap = "inferno")
+    nx.draw_kamada_kawai(graph, with_labels=True, node_color=colors, node_size=300, cmap="RdYlGn_r", ax = ax)
+
+
+    divider = make_axes_locatable(ax)
+    cax = divider.append_axes('right', size='5%', pad=0.05)
+    sm = plt.cm.ScalarMappable(cmap="RdYlGn_r", norm=plt.Normalize(vmin = 0, vmax=1))
+    plt.colorbar(sm, cax=cax, orientation='vertical')
+
+
+########################################################
+
+def tomography_circuits( circ, n_qubits):
+
+    circ_x = circ.copy().h(n_qubits)
+    circ_y = circ.copy().z(n_qubits).s(n_qubits).h(n_qubits)
+    circ_z = circ.copy()
+    return ( circ_x, circ_y, circ_z)
+
+def grt_topography_results():
+    pass
