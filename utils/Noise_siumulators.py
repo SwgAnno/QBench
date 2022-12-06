@@ -18,6 +18,73 @@ from quil_utils import Braket_to_Quil_Transpiler,Quil_to_Braket_Transpiler, get_
 from copy import deepcopy
 
 
+
+
+def simulate_noise_ion_q_11 (braket_circ:Circuit()):
+    """
+    It simulates noise using calibration data available at https://us-east-1.console.aws.amazon.com/braket/home?region=us-east-1#/devices/arn:aws:braket:us-west-1::device/qpu/rigetti/Aspen-M-2
+
+    Parameters
+    ----------
+    braket_circ: braket.Circuit() Circuit to simulate with real noise
+    
+    Output
+    ----------
+    rewired_circ: braket.Circuit()   Circuit with real noise with rewired qubits from physical label to logical one starting from 0 to n_qubits in order for it to suit simulators better    
+    """
+    ion_q_11 = DeviceUtils.get_device("ionq")
+    ion_q_specs = ion_q_11.properties.dict()['provider']
+    fidelities = ion_q_specs['fidelity']
+    timing = ion_q_specs['timing']
+    gate_time_1_qubit = timing["1Q"]
+
+    noise_model = NoiseModel()
+
+    for q in range(11):  # iterate over qubits
+
+        # T1 dampening
+        t1 = timing["T1"]
+        damping_prob = 1 - np.exp(-(gate_time_1_qubit / t1))
+        noise_model.add_noise(AmplitudeDamping(damping_prob), GateCriteria(qubits=int(q)))
+
+        # T2 phase flip
+        t2 = timing["T2"]
+        dephasing_prob = 0.5 * (1 - np.exp(-(gate_time_1_qubit / t2)))
+        noise_model.add_noise(PhaseDamping(dephasing_prob), GateCriteria(qubits=int(q)))
+
+        # 1q RB depolarizing rate from simultaneous RB
+        depolar_rate = 1 - fidelities["1Q"]["mean"]
+        noise_model.add_noise(Depolarizing(depolar_rate), GateCriteria(qubits=int(q)))
+
+        # 1q RB readout 
+        #timing
+        t_readout = timing["readout"]
+        damping_prob = 1 - np.exp(-(t_readout / t1))
+        noise_model.add_noise(AmplitudeDamping(damping_prob),  ObservableCriteria(qubits=int(q)))
+        #bit flip
+        readout_value = 1 - fidelities["spam"]["mean"]
+        noise_model.add_noise(BitFlip(readout_value), ObservableCriteria(qubits=int(q)))
+    
+    
+    # Two-qubit noise (the connectivity graph is the complete graph)
+
+    # 2q RB depolarizing rate
+    depolar_rate = 1 - fidelities["2Q"]["mean"]
+    noise_model.add_noise(Depolarizing(depolar_rate), GateCriteria())
+
+    noisy_circ = noise_model.apply(braket_circ)
+    return noisy_circ
+
+
+
+
+
+
+
+
+
+
+
 def simulate_noise_aspen_m_2(braket_circ : Circuit()):
     """
     It simulates noise using calibration data available at https://us-east-1.console.aws.amazon.com/braket/home?region=us-east-1#/devices/arn:aws:braket:us-west-1::device/qpu/rigetti/Aspen-M-2
@@ -28,7 +95,8 @@ def simulate_noise_aspen_m_2(braket_circ : Circuit()):
     
     Output
     ----------
-    
+    rewired_circ: braket.Circuit()   Circuit with real noise with rewired qubits from physical label to logical one starting from 0 to n_qubits in order for it to suit simulators better    
+    qubit_mapping: dict     dictionary of mapping physical to logical qubit label
     """
    
     aspen_m_2 = DeviceUtils.get_device("rigetti")
@@ -61,7 +129,7 @@ def simulate_noise_aspen_m_2(braket_circ : Circuit()):
         depolar_rate = 1 - data["f1Q_simultaneous_RB"]
         noise_model.add_noise(Depolarizing(depolar_rate), GateCriteria(qubits=int(q)))
 
-        # 1q RB readout
+        # 1q RB readout 
         readout_value = 1 - data["fRO"]
         noise_model.add_noise(BitFlip(readout_value), ObservableCriteria(qubits=int(q)))
 
@@ -97,12 +165,12 @@ def simulate_noise_aspen_m_2(braket_circ : Circuit()):
     #exploiting transpilers to have a computable circuit with logical qubits starting from 0
     
     #simulation    
-    np.random.seed(42)
+   # np.random.seed(42)
     noisy_circ = noise_model.apply(braket_circ)
     # quil_noisy_circ = Braket_to_Quil_Transpiler(noisy_circ).quil_circ
     # rewired_noisy_circ = Quil_to_Braket_Transpiler(quil_noisy_circ,quil_rewiring=False)
-    rewired_circ, qubit_mapping = Rewiring_circ(noisy_circ)
-    return rewired_circ, qubit_mapping
+    rewired_noise_circ, qubit_mapping = Rewiring_circ(noisy_circ)
+    return rewired_noise_circ, qubit_mapping
 
 
 
@@ -144,3 +212,5 @@ def Rewiring_circ(braket_circ : Circuit()):
             new_instruction.target.add(Qubit(int(qubit_label)) )
         rewired_circ.add_instruction(instruction=new_instruction)
     return rewired_circ,qubit_mapping
+
+
