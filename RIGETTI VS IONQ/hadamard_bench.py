@@ -184,7 +184,7 @@ def plot_z_per_qubit(scanner : BraketTaskScanner, ax = None) :
     colors = [ perr[compilation_map[x]] for x in graph.nodes]
     #print(colors)
     #obj = ax.imshow(perr, vmin = 0, vmax = 1, cmap = "inferno")
-    nx.draw_kamada_kawai(graph, with_labels=True, node_color=colors, node_size=300, cmap="RdYlGn_r", ax = ax)
+    nx.draw_kamada_kawai(graph, with_labels=True, node_color=colors, node_size=300, cmap="RdYlGn_r", vmin = 0, vmax = 1, ax = ax)
 
 
     divider = make_axes_locatable(ax)
@@ -197,10 +197,7 @@ def plot_z_per_qubit(scanner : BraketTaskScanner, ax = None) :
 
 def tomography_circuits( circ, n_qubits):
 
-    circ_x = circ.copy().h(n_qubits)
-    circ_y = circ.copy().z(n_qubits).s(n_qubits).h(n_qubits)
-    circ_z = circ.copy()
+    circ_x = circ.deepcopy().h(n_qubits)
+    circ_y = circ.deepcopy().z(n_qubits).s(n_qubits).h(n_qubits)
+    circ_z = circ.deepcopy()
     return ( circ_x, circ_y, circ_z)
-
-def grt_topography_results():
-    pass
