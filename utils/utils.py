@@ -213,6 +213,9 @@ class DeviceScanner(object):
     
     def is_available(self):
         return self.get_device().is_available
+
+    def get_topology_graph(self):
+        return self.get_device().topology_graph
     
     #leverage _get_qpu_task_cost to extract pricing infos
     def get_cost_infos(self):
@@ -258,6 +261,8 @@ class DeviceScanner(object):
             print("No associated device topology")
         else:
             nx.draw_kamada_kawai(device.topology_graph, with_labels=True, font_weight="bold")
+
+
 
 
 class Plotter(object) :
@@ -335,7 +340,7 @@ class DeviceUtils(object) :
         
         
     
-########################################################à
+########################################################
            
 def qasm_source( circ):
     """
@@ -348,7 +353,14 @@ def qasm_source( circ):
     return result.additional_metadata.action.source
 
 
-########################################################à
+########################################################
+
+def tomography_circuits( circ, n_qubits):
+
+    circ_x = circ.copy().h(n_qubits)
+    circ_y = circ.copy().z(n_qubits).s(n_qubits).h(n_qubits)
+    circ_z = circ.copy()
+    return ( circ_x, circ_y, circ_z)
 
 
 
