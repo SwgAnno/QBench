@@ -121,7 +121,7 @@ def get_rigetti_compilation_map( src ):
 
     out = dict()
     for m in matches:
-        out[int(m[0])] = int(m[1])
+        out[int(m[1])] = int(m[0])
 
     return out
 
@@ -183,7 +183,7 @@ def plot_z_per_qubit(scanner : BraketTaskScanner, ax = None) :
 
     colors = [ perr[compilation_map[x]] for x in graph.nodes]
     #print(colors)
-    #obj = ax.imshow(perr, vmin = 0, vmax = 1, cmap = "inferno")
+    obj = ax.imshow(perr, vmin = 0, vmax = 1, cmap = "inferno")
     nx.draw_kamada_kawai(graph, with_labels=True, node_color=colors, node_size=300, cmap="RdYlGn_r", ax = ax)
 
 
