@@ -1,0 +1,56 @@
+{
+   "rigetti_tomo_x_0": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/bb963bb1-d540-4361-b986-addb4bb70fee"
+   },
+   "rigetti_tomo_y_0": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/f92c51ef-c65a-42d4-933e-e93baeb2f5ec"
+   },
+   "rigetti_tomo_z_0": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/9f4b0f11-41ea-4cb3-bf14-0782632bcb25"
+   },
+   "rigetti_tomo_x_5": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/7263dcb0-5139-4a8b-8418-7fc7cf9f2dc6"
+   },
+   "rigetti_tomo_y_5": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/de4a14d3-5ce3-4bda-9efb-500b3ab27fe0"
+   },
+   "rigetti_tomo_z_5": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/b3f1246f-65a0-42ab-aaa6-932f58c94bbe"
+   },
+   "rigetti_tomo_x_10": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/6737b965-6b0e-4db5-9983-142a81be058b"
+   },
+   "rigetti_tomo_y_10": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/956563ed-9ed1-4f80-82e9-67679671419f"
+   },
+   "rigetti_tomo_z_10": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/f8358045-f4f7-44a2-b7b2-c6d4f1e278cc"
+   },
+   "rigetti_tomo_x_15": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/fd114643-034d-430d-ba8d-3169883eb4c6"
+   },
+   "rigetti_tomo_y_15": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/e4eb91c0-2b36-4c69-8bbd-230ce79c2682"
+   },
+   "rigetti_tomo_z_15": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/e23fc6f5-7194-4148-b874-7931004b11bc"
+   },
+   "rigetti_tomo_x_20": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/2b6573ba-6162-4ef6-8636-f4b1a535cc98"
+   },
+   "rigetti_tomo_y_20": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/c6c057df-22a3-4d0e-905b-9ea6294d80ad"
+   },
+   "rigetti_tomo_z_20": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/a4dd2ddc-727c-42a3-9f33-c83329abf2e8"
+   },
+   "rigetti_tomo_x_25": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/31852d85-9244-4d97-8e80-7c08dde736c9"
+   },
+   "rigetti_tomo_y_25": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/da7d7715-7c6a-43a3-845c-8464deb06510"
+   },
+   "rigetti_tomo_z_25": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/738ecacc-4c13-49ef-b088-e2c479cf70ea"
+   }
+}
