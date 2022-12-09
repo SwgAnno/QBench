@@ -125,6 +125,18 @@ def get_rigetti_compilation_map( src ):
 
     return out
 
+def get_rigetti_rewiring_map(src):
+
+    measure_re = "MEASURE (\d+) \w+\[(\d+)\]"
+
+    matches = re.findall(measure_re,src)
+
+    out = dict()
+    for m in matches:
+        out[int(m[1])] = int(m[0])
+
+    return out
+
 
 def dump_tasks( tasks , labels = None, filename :str = None):
 
