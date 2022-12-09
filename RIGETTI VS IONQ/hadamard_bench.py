@@ -2,14 +2,18 @@ import sys
 
 # AWS imports: Import Braket SDK modules
 
+from typing import List
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
+import qutip
+from mpl_toolkits.mplot3d import Axes3D
 
 
 from braket.circuits import Circuit, Gate, Instruction, circuit, Observable
 from braket.devices import LocalSimulator
 from braket.aws import AwsDevice ,AwsQuantumTask
 import numpy as np
+from numpy.linalg import eigh
 
 import functools
 import time
@@ -213,3 +217,90 @@ def tomography_circuits( circ, n_qubits):
     circ_y = circ.deepcopy().z(n_qubits).s(n_qubits).h(n_qubits)
     circ_z = circ.deepcopy()
     return ( circ_x, circ_y, circ_z)
+
+def get_tomography_results( scanners: List[BraketTaskScanner]):
+
+    n_qubits = [sc.get_results().measured_qubits for sc in scanners]
+
+    per_qubits = [result_per_qubit(sc.get_results()) for sc in scanners]
+    maps = [get_rigetti_rewiring_map(sc.get_compiled_circuit()) for sc in scanners]
+    
+    print(n_qubits)
+    #print(scanners[0].get_compiled_circuit())
+    #print(per_qubits[0])
+    #print(map)
+    #aggiungere mappa
+    density = dict()
+    purity = dict()
+    for qubit in range(len(n_qubits[0])) :
+        counts_x = np.array(per_qubits[0][per_qubits[0].qubit_n == qubit]["counts"])
+        counts_y = np.array(per_qubits[1][per_qubits[1].qubit_n == qubit]["counts"])
+        counts_z = np.array(per_qubits[2][per_qubits[2].qubit_n == qubit]["counts"])
+        #print(counts)
+
+        print(counts_x)
+        x =  (counts_x[1]-counts_x[0])/(counts_x[1]+counts_x[0])
+        y =  (counts_y[1]-counts_y[0])/(counts_y[1]+counts_y[0])
+        z =  (counts_z[1]-counts_z[0])/(counts_z[1]+counts_z[0])
+
+        r = x**2 + y**2 +z**2
+        purity[maps[0][qubit]] = (1+r)/2
+        x = x/r
+        y = y/r
+        z = z/r
+
+        dmat = np.array([[1-z, x+ 1j*y],[x-1j*y, 1+z]], dtype=complex)
+        density[maps[0][qubit]] = dmat
+
+    return density,purity
+
+def plot_on_device(data, device : AwsDevice, rewiring_map = None, ax= None, cmap = "RdYlGn_r"):
+
+    if ax == None:
+        fig, ax = plt.subplots(1,1, figsize = (5,6))
+
+    if rewiring_map == None:
+        rewiring_map = {x:x for x in range(len(data))}
+
+    graph = device.topology_graph
+    print(rewiring_map)
+    col_vec = [ data.get(rewiring_map.get(x,-1),0) for x in range(len(graph.nodes))]
+    nx.draw_kamada_kawai(graph, with_labels=True, node_color=col_vec, node_size=300, cmap=cmap, vmin = 0, vmax = 1, ax = ax)
+
+
+    divider = make_axes_locatable(ax)
+    cax = divider.append_axes('right', size='5%', pad=0.05)
+    sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin = 0, vmax=1))
+    plt.colorbar(sm, cax=cax, orientation='vertical')
+
+def plot_density_eigen( densities, fig = None, ax = None, mayavi = False):
+
+    n_mat = len(densities)
+    major = np.empty((3, n_mat))
+    minor = np.empty((3, n_mat))
+
+
+    for i , key in enumerate(densities):
+
+        values, vectors = eigh(densities[key])
+
+        mi = vectors[:,0]
+        mj = vectors[:,1]
+
+        minor[:,i] =( (np.abs(mi[1])**2-np.abs(mi[0])**2), 2* np.real( mi[0]*np.conj(mi[1])),2* np.imag( mi[0]*np.conj(mi[1])))
+        major[:,i] =( (np.abs(mj[1])**2-np.abs(mj[0])**2), 2* np.real( mj[0]*np.conj(mj[1])),2* np.imag( mj[0]*np.conj(mj[1])))
+
+    if mayavi :
+        b=qutip.Bloch3d()
+    else:
+        if ax == None:
+            fig = plt.figure(figsize= (6,6))
+            ax = Axes3D(fig, azim=-40, elev=30)
+
+        b = qutip.Bloch(axes=ax)
+    b.add_points([minor[1], minor[2], minor[0]])
+    b.add_points([major[1], major[2], major[0]])
+    #b.make_sphere()
+    b.show()
+
+    return ax
