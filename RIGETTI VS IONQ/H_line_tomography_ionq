@@ -1,0 +1,47 @@
+{
+   "ionq_tomo_x_0": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/30c10f72-0b72-494e-87d3-f30fbb5dce50"
+   },
+   "ionq_tomo_y_0": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/a074fc78-63be-4fa5-b107-0f9c46a5cc6f"
+   },
+   "ionq_tomo_z_0": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/a2587129-0344-4b72-985f-433427835db7"
+   },
+   "ionq_tomo_x_5": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/8d34ca8f-1f36-4122-9b3b-336fa5b0036c"
+   },
+   "ionq_tomo_y_5": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/4bfbdb7a-197e-4d77-8566-e506bc810886"
+   },
+   "ionq_tomo_z_5": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/b6c0c759-4408-40a6-b548-7571f5646bbb"
+   },
+   "ionq_tomo_x_10": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/db3e1e04-7141-4063-a4c1-c0efc034fc00"
+   },
+   "ionq_tomo_y_10": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/97822161-80e0-4c77-b52e-38f8299451a6"
+   },
+   "ionq_tomo_z_10": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/951d22cf-34c9-4a8c-afe3-b478b4bdbce2"
+   },
+   "ionq_tomo_x_15": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/17ff03ae-8939-43c8-a999-acf987c7372b"
+   },
+   "ionq_tomo_y_15": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/0a3fd278-5e9d-4612-ab6c-b19c85dbe56c"
+   },
+   "ionq_tomo_z_15": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/d93d16f1-6509-4eed-aaa4-0fae0610cc10"
+   },
+   "ionq_tomo_x_20": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/947154fa-c898-4871-bb71-728c1463f4c5"
+   },
+   "ionq_tomo_y_20": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/c09e1800-b578-4483-ba19-1de9e07a05e1"
+   },
+   "ionq_tomo_z_20": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/1112c6c8-1f50-4f01-9b92-0808f6254904"
+   }
+}

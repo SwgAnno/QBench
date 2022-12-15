@@ -1,0 +1,11 @@
+{
+   "ionq_tomo_x_0": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/605fdea2-0077-44e5-a8f0-e785881921e4"
+   },
+   "ionq_tomo_y_0": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/685e80fe-3d6b-4e17-a1fa-13229325e2cf"
+   },
+   "ionq_tomo_z_0": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/a1643b61-7964-41b4-a065-857e986df8a0"
+   }
+}

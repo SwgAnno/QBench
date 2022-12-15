@@ -1,3 +1,4 @@
+from copy import deepcopy
 import sys
 
 # AWS imports: Import Braket SDK modules
@@ -213,9 +214,9 @@ def plot_z_per_qubit(scanner : BraketTaskScanner, cmap = "RdYlGn_r", ax = None) 
 
 def tomography_circuits( circ, n_qubits):
 
-    circ_x = circ.deepcopy().h(n_qubits)
-    circ_y = circ.deepcopy().z(n_qubits).s(n_qubits).h(n_qubits)
-    circ_z = circ.deepcopy()
+    circ_x = deepcopy(circ).h(n_qubits)
+    circ_y = deepcopy(circ).z(n_qubits).s(n_qubits).h(n_qubits)
+    circ_z = deepcopy(circ)
     return ( circ_x, circ_y, circ_z)
 
 def get_tomography_results( scanners: List[BraketTaskScanner]):
