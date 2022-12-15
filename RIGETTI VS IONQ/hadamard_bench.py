@@ -1,4 +1,5 @@
 import sys
+sys.path.append("../utils/")
 
 # AWS imports: Import Braket SDK modules
 
