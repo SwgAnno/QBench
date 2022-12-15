@@ -38,5 +38,14 @@
       "ionq": {
          "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/5f206555-6564-49af-8369-79e38f084e83"
       }
+   },
+       "11": {
+      "rigetti": {
+         "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/0981e496-94de-4a97-aa8f-df152e4580fb"
+      },
+      "ionq": {
+         "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/090285a9-6b50-48bc-9a79-8d35b009e5b0"
+      }
    }
+   
 }

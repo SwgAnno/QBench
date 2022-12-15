@@ -1,0 +1,20 @@
+{
+   "ls_rigetti_ghz_s10000_#q_2": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/28fa2242-e09b-4974-b90e-1a216e15c477"
+   },
+   "ls_rigetti_ghz_s10000_#q_4": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/8a21c269-eb13-403e-b4ca-1415ecf67fe6"
+   },
+   "ls_rigetti_ghz_s10000_#q_6": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/76c50630-6f09-45ca-b1b5-ec130f709697"
+   },
+   "ls_rigetti_ghz_s10000_#q_8": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/20447ce2-9a7d-44f5-835d-9d0478e0ba02"
+   },
+   "ls_rigetti_ghz_s10000_#q_10": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/b5eb7801-05c3-46a8-a2b4-6803306057d6"
+   },
+   "ls_rigetti_ghz_s10000_#q_11": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/979b2e17-15d5-4f93-af70-e0224a023b83"
+   }
+}
