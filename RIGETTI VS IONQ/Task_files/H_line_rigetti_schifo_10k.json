@@ -1,0 +1,38 @@
+{
+   "rigetti_s10000_q24_hl20": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/27fa8333-d9db-4b6d-a7b2-1d6d2e4d48a2"
+   },
+   "rigetti_s10000_q24_hl100": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/b37840d4-9d31-434b-a77b-365815db18bb"
+   },
+   "rigetti_s10000_q24_hl500": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/f2c13e23-41de-40f3-bfe5-fa749841602e"
+   },
+   "rigetti_s10000_q31_hl20": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/dafc9a5d-fee0-443d-b68e-4e213537d849"
+   },
+   "rigetti_s10000_q31_hl100": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/99f12c31-c52d-4a1b-9cb3-af841048529e"
+   },
+   "rigetti_s10000_q31_hl500": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/b39c4a09-e60d-49f6-b432-c29ffd3cc142"
+   },
+   "rigetti_s10000_q105_hl20": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/36363cfe-80d1-4728-b154-bbf4bf04d41c"
+   },
+   "rigetti_s10000_q105_hl100": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/add71cdd-2af0-43be-9b3b-bf9d32504062"
+   },
+   "rigetti_s10000_q105_hl500": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/6fe79639-3bc9-4ee7-a7ff-ede3edd33dbc"
+   },
+   "rigetti_s10000_q111_hl20": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/07089477-6fe0-4800-8f46-8318651e55da"
+   },
+   "rigetti_s10000_q111_hl100": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/7b19ca4c-446d-4293-aa19-68cd4c8ba9b6"
+   },
+   "rigetti_s10000_q111_hl500": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/85a77ddf-50b4-44df-a45a-68f2b004d59e"
+   }
+}
