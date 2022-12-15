@@ -1,0 +1,17 @@
+{
+   "ls_rigetti_s1000_q11_hl_10": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/4b777f7f-76be-40ac-9cbd-00960374e722"
+   },
+   "ls_rigetti_s1000_q11_hl_20": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/0cda5178-e807-40ab-89a3-bbf5dfec0673"
+   },
+   "ls_rigetti_s1000_q11_hl_30": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/704912fc-ebfe-4ecf-9bfb-f39d2e2005a4"
+   },
+   "ls_rigetti_s1000_q11_hl_50": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/c14dec34-73f3-4a47-9473-93e31359daf7"
+   },
+   "ls_rigetti_s1000_q11_hl_100": {
+      "id": "arn:aws:braket:us-east-1:058017682654:quantum-task/4313ef23-7584-4d3b-95e3-906f7b691ae9"
+   }
+}

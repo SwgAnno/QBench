@@ -55,7 +55,7 @@ def H_line (n_qubits,line_length,device_name):
     elif device_name == 'Rigetti':
         qc = get_qc(name='Aspen-M-2',as_qvm=True)
         #first we compile Hadamard gate, then we repeat it in order to have it executed N times, first we transpile it in quil, then compile it, then retranspile in braket
-        H_gate = Circuit().h(range(n_qubits))
+        H_gate = Circuit().h(qubits)
         transpiled_H_gate = Braket_to_Quil_Transpiler(H_gate)
         compiled_H = transpiled_H_gate.verbatim_circ(qc)
         
@@ -125,7 +125,7 @@ def get_rigetti_compilation_map( src ):
 
     out = dict()
     for m in matches:
-        out[int(m[0])] = int(m[1])
+        out[int(m[1])] = int(m[0])
 
     return out
 
