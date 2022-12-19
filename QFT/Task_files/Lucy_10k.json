@@ -1,0 +1,20 @@
+{
+   "2": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/36bae617-3d05-4eb6-834e-0e8abdaef9d5"
+   },
+   "3": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/863eaa3f-521f-4f90-9488-897906691417"
+   },
+   "4": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/65f171d9-8918-4519-9400-8a859b4a8117"
+   },
+   "5": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/7f2b2bf2-0fb1-4a87-8db6-2dfba59d0c89"
+   },
+   "6": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/eaff237b-d40e-4c6c-aec8-330f3cd4fa74"
+   },
+   "7": {
+      "id": "arn:aws:braket:us-west-1:058017682654:quantum-task/2b71d8a0-e9c8-4bad-bd61-c68f0b349507"
+   }
+}
