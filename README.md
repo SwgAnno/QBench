@@ -52,6 +52,11 @@ Attempt at creating a compiling tool
 
 Random utils that had been written for the various experiments
 
+# Credits
 
-### To do
-Migliorare come vengono plottati i grafici per la QPE, eliminando i Query qubit
+Those experiments are the result of a side university project carried on for the MSc degree in Physics, Quantum Physics&Tech major during winter 2022.
+Two people contributed to this code:
+- Emilio Annoni, emilio.annoni@studenti.unimi.it
+- Emilio Rui, emilio.rui@studenti.unimi.it
+
+Thanks for stopping by!
