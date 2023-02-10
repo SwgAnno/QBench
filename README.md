@@ -10,17 +10,17 @@ The experiments have been run during winter 2022 and targeted the main gate-base
 
 Brief description of the files organized in each folder
 
-## AWS_objects
+### AWS_objects
 Exploring and reverse engeneering the criptic structure of the AWS SDK objects to extract all possibly useful informations
 
-## examples
+### examples
 DIY fork of Braket SDK examples
 
-## Deutsch
+### Deutsch
 
 Two example notebooks  implementing Deutsch algorithm with Braket SDK and visualising its results
 
-## QFT
+### QFT
 
 QFT test on Rigetti, Ionq and OQC devices.
 
@@ -32,7 +32,7 @@ The notebooks includes results of some 3 to 10 qubits QFT launched one the vario
 
 A last notebook tries a QPE implementation
 
-## RIVETTI VS IONQ
+### RIVETTI VS IONQ
 
 Main QPU benchmarck experiments where we tested and compared the capabilities of IonQ11 and Aspen M-2.
 The experiments assessed in a simple way two relevant parameters for computation : 
@@ -44,14 +44,14 @@ The resulting circuit behaves like a noisy identity, the quality of the output a
 
 The entangling gate experiment, codename GHZ, tried to create a bigger and bigger GHZ state using the canonical Hadamard + CNOT circuid and assessed the quality of the output.
 
-## development
+### development
 
 Attempt at creating a compiling tool
 
-## utils
+### utils
 
 Random utils that had been written for the various experiments
 
 
-## To do
+### To do
 Migliorare come vengono plottati i grafici per la QPE, eliminando i Query qubit
